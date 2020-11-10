@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name="AutonomusMode", group="Robot")
 //@Disabled
-public class AutonomusMode extends LinearOpMode implements MotorInterface {
+public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
 
     HardwareMap             robot = new HardwareMap();
     private ElapsedTime     runtime = new ElapsedTime();

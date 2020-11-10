@@ -1,6 +1,6 @@
 package org.firstinspires.ftc.teamcode;
 
-public interface MotorInterface {
+public interface AutonomusInterface {
 
     void moveforward(int time , int speed);
 
