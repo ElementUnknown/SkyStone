@@ -48,10 +48,10 @@ public class TeleopMode extends LinearOpMode implements TeleopInterface {
      */
     @Override
     public void rightequations() {
-        wheelspeeds[4] =
-        wheelspeeds[5] =
-        wheelspeeds[6] =
-        wheelspeeds[7] =
+        wheelspeeds[4] = rx;
+        wheelspeeds[5] = rx;
+        wheelspeeds[6] = -rx;
+        wheelspeeds[7] = -rx;
     }
 
     @Override
@@ -73,6 +73,12 @@ public class TeleopMode extends LinearOpMode implements TeleopInterface {
                 robot.backleftwheel.setPower(wheelspeeds[1]);
                 robot.frontrightwheel.setPower(wheelspeeds[2]);
                 robot.backrightwheel.setPower(wheelspeeds[3]);
+            }
+            if (rx < 0.1 && ry < 0.1) {
+                robot.frontleftwheel.setPower(wheelspeeds[4]);
+                robot.backleftwheel.setPower(wheelspeeds[5]);
+                robot.frontrightwheel.setPower(wheelspeeds[6]);
+                robot.backrightwheel.setPower(wheelspeeds[7]);
             }
         }
     }
