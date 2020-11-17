@@ -5,6 +5,4 @@ public interface TeleopInterface {
     void leftequations();
 
     void rightequations();
-
-    void buffer();
 }

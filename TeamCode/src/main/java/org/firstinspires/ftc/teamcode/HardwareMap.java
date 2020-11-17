@@ -56,8 +56,7 @@ public class HardwareMap
     public DcMotor  backleftwheel     = null;
     public DcMotor  frontrightwheel   = null;
     public DcMotor  backrightwheel    = null;
-    public Servo    rightintake       = null;
-    public Servo    leftintake       = null;
+    public Servo    tray       = null;
 
     //public static final double MID_SERVO       =  0.5 ;
 
@@ -97,8 +96,8 @@ public class HardwareMap
         // Define and initialize ALL installed servos.
         /* rightClaw = hwMap.get(Servo.class, "right_hand");
         rightClaw.setPosition(MID_SERVO); */
-        rightintake = hwMap.get(Servo.class, "rightintake");
-        leftintake = hwMap.get(Servo.class, "leftintake");
+        tray = hwMap.get(Servo.class, "tray");
+        tray.setPosition(170);
     }
  }
 
