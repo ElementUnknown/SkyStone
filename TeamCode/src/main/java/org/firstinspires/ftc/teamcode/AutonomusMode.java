@@ -165,6 +165,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
         movebackward(2,1);
         turnleft(2,0.5);
         turnright(2,0.5);
+        controltray(60);
 
         telemetry.addData("Status", "Complete");
         telemetry.update();

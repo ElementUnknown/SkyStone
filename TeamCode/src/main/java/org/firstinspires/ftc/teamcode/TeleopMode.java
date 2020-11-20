@@ -14,6 +14,10 @@ public class TeleopMode extends LinearOpMode {
     double lx = gamepad1.left_stick_x;
     double ly = gamepad1.left_stick_y;
     double turnpower = 0;
+    boolean Abutton = gamepad2.a;
+    boolean Bbutton = gamepad2.b;
+    boolean Ybutton = gamepad2.y;
+    boolean Xbutton = gamepad2.x;
 
     @Override
     public void runOpMode() {
@@ -75,6 +79,19 @@ public class TeleopMode extends LinearOpMode {
                 robot.backleftwheel.setPower(0);
                 robot.frontrightwheel.setPower(0);
                 robot.backrightwheel.setPower(0);
+            }
+
+            if (Abutton = true) {
+                robot.tray.setPosition(90);
+            }
+            else if (Bbutton = true) {
+                robot.tray.setPosition(120);
+            }
+            else if (Ybutton = true) {
+                robot.tray.setPosition(150);
+            }
+            else if (Xbutton = true) {
+                robot.tray.setPosition(180);
             }
         }
     }
