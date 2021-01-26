@@ -55,12 +55,12 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 public class  HardwareMap
 {
     /* Public OpMode members. */
-    public DcMotor frontleftwheel    = null;
+    public DcMotor  frontleftwheel    = null;
     public DcMotor  backleftwheel     = null;
     public DcMotor  frontrightwheel   = null;
     public DcMotor  backrightwheel    = null;
-    public Servo    tray       = null;
-    public DcMotor lift = null;
+    public DcMotor  lift              = null;
+    public Servo    tray              = null;
 
     //public static final double MID_SERVO       =  0.5 ;
 
