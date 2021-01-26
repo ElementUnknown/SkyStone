@@ -13,7 +13,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     private ElapsedTime     runtime = new ElapsedTime();
 
     @Override
-    public void moveforward(int time, double speed) {
+    public void moveforward(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(lspeed);
@@ -27,7 +27,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void movebackward(int time, double speed) {
+    public void movebackward(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(-lspeed);
@@ -41,7 +41,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void moveleft(int time, double speed) {
+    public void moveleft(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(-lspeed);
@@ -55,7 +55,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void moveright(int time, double speed) {
+    public void moveright(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(lspeed);
@@ -69,7 +69,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void moveupright(int time, double speed) {
+    public void moveupright(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(lspeed);
@@ -81,7 +81,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void moveupleft(int time, double speed) {
+    public void moveupleft(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontrightwheel.setPower(rspeed);
@@ -93,7 +93,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void movedownright(int time, double speed) {
+    public void movedownright(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontrightwheel.setPower(-rspeed);
@@ -105,7 +105,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void movedownleft(int time, double speed) {
+    public void movedownleft(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(-lspeed);
@@ -117,7 +117,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void turnright(int time, double speed) {
+    public void turnright(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(lspeed);
@@ -131,7 +131,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     }
 
     @Override
-    public void turnleft(int time, double speed) {
+    public void turnleft(double time, double speed) {
         double rspeed = -speed;
         double lspeed = speed;
         robot.frontleftwheel.setPower(-lspeed);
@@ -142,6 +142,17 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
         while (opModeIsActive() && (runtime.seconds() < time)) {
 
         }
+    }
+    @Override
+    public void liftup(double time, double speed) {
+        robot.lift.setPower(speed);
+        while (opModeIsActive() && (runtime.seconds() <time)) {}
+    }
+
+    @Override
+    public void liftdown(double time, double speed) {
+        robot.lift.setPower(-speed);
+        while (opModeIsActive() && (runtime.seconds() <time)) {}
     }
 
     @Override
@@ -159,14 +170,16 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
         waitForStart();
 
         // Code goes here.
-        moveforward(2,1);
-        moveleft(4,1);
-        moveright(2,1);
-        movebackward(2,1);
-        turnleft(2,0.5);
-        turnright(2,0.5);
+        moveforward(.5,.5);
+       // moveleft(2,.25);
+        //moveright(1,.25);
+        //movebackward(1,.25);
+        //turnleft(1,0.25);
+        //turnright(1,0.1);
+        liftup( 1,.1);
         controltray(60);
-
+        controltray(0);
+        liftdown(1, .1);
         telemetry.addData("Status", "Complete");
         telemetry.update();
         sleep(1000);

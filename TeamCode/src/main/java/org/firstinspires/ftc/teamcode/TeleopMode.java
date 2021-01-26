@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
 @TeleOp(name="TeleopMode", group="Robot")
-//@Disabled
+@Disabled
 public class TeleopMode extends LinearOpMode {
 
     HardwareMap             robot = new HardwareMap();

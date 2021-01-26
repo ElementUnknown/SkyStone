@@ -29,6 +29,8 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.hardware.motors.NeveRest20Gearmotor;
+import com.qualcomm.hardware.motors.RevRoboticsCoreHexMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -49,14 +51,15 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
-public class HardwareMap
+public class  HardwareMap
 {
     /* Public OpMode members. */
-    public DcMotor  frontleftwheel    = null;
+    public DcMotor frontleftwheel    = null;
     public DcMotor  backleftwheel     = null;
     public DcMotor  frontrightwheel   = null;
     public DcMotor  backrightwheel    = null;
     public Servo    tray       = null;
+    public DcMotor lift = null;
 
     //public static final double MID_SERVO       =  0.5 ;
 
@@ -79,12 +82,15 @@ public class HardwareMap
         backleftwheel = hwMap.get(DcMotor.class, "backleftwheel");
         frontrightwheel  = hwMap.get(DcMotor.class, "frontrightwheel");
         backrightwheel = hwMap.get(DcMotor.class, "backrightwheel");
+        lift = hwMap.get(DcMotor.class, "lift");
 
         // Set all motors to zero power
         frontleftwheel.setPower(0);
         backleftwheel.setPower(0);
         frontrightwheel.setPower(0);
         backrightwheel.setPower(0);
+        lift.setPower(0);
+
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -97,7 +103,7 @@ public class HardwareMap
         /* rightClaw = hwMap.get(Servo.class, "right_hand");
         rightClaw.setPosition(MID_SERVO); */
         tray = hwMap.get(Servo.class, "tray");
-        tray.setPosition(170);
+        tray.setPosition(90);
     }
  }
 
