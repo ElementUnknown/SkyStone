@@ -32,6 +32,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.hardware.motors.NeveRest20Gearmotor;
 import com.qualcomm.hardware.motors.RevRoboticsCoreHexMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -82,6 +83,10 @@ public class  HardwareMap
         backleftwheel = hwMap.get(DcMotor.class, "backleftwheel");
         frontrightwheel  = hwMap.get(DcMotor.class, "frontrightwheel");
         backrightwheel = hwMap.get(DcMotor.class, "backrightwheel");
+        frontleftwheel.setDirection(DcMotorSimple.Direction.REVERSE);
+        frontrightwheel.setDirection(DcMotorSimple.Direction.REVERSE);
+        backleftwheel.setDirection(DcMotorSimple.Direction.REVERSE);
+        backrightwheel.setDirection(DcMotorSimple.Direction.REVERSE);
         lift = hwMap.get(DcMotor.class, "lift");
 
         // Set all motors to zero power

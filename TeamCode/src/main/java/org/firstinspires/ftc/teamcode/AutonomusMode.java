@@ -152,6 +152,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
     @Override
     public void liftdown(double time, double speed) {
         robot.lift.setPower(-speed);
+        speed = -speed;
         while (opModeIsActive() && (runtime.seconds() <time)) {}
     }
 
@@ -176,10 +177,10 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
         //movebackward(1,.25);
         //turnleft(1,0.25);
         //turnright(1,0.1);
-        liftup( 0.5,.1);
+        liftup( 0.5,.5);
         controltray(60);
         controltray(0);
-        liftdown(.5, .1);
+        liftdown(.5, .5);
         telemetry.addData("Status", "Complete");
         telemetry.update();
         sleep(1000);
