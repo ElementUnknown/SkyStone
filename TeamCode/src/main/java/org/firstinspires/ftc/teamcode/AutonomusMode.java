@@ -179,7 +179,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
         liftup( 1,.1);
         controltray(60);
         controltray(0);
-        liftdown(1, .1);
+        liftdown(.5, .1);
         telemetry.addData("Status", "Complete");
         telemetry.update();
         sleep(1000);
