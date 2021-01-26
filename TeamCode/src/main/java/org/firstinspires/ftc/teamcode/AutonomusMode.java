@@ -176,7 +176,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
         //movebackward(1,.25);
         //turnleft(1,0.25);
         //turnright(1,0.1);
-        liftup( 1,.1);
+        liftup( 0.5,.1);
         controltray(60);
         controltray(0);
         liftdown(.5, .1);
