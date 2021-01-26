@@ -172,7 +172,7 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
 
         // Code goes here.
         moveforward(.5,.5);
-       // moveleft(2,.25);
+        //moveleft(2,.25);
         //moveright(1,.25);
         //movebackward(1,.25);
         //turnleft(1,0.25);
