@@ -53,10 +53,16 @@ public class AutonomusMode extends LinearOpMode implements AutonomusInterface {
 
     @Override
     public void movebackward( double speed, double targetDistance) {
-        double targetTicks = targetDistance * Ticks_Per_Inch_lateral;
+        double targetTicks = targetDistance * -Ticks_Per_Inch_lateral;
         robot.frontrightwheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.frontrightwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         while (robot.frontrightwheel.getCurrentPosition() < targetTicks){
+            if (robot.frontrightwheel.getCurrentPosition()-targetTicks > 100){
+                Portion_of_Speed = 1;
+            }
+            else if (robot.frontrightwheel.getCurrentPosition()-targetTicks < 100){
+                Portion_of_Speed = robot.frontrightwheel.getCurrentPosition() - targetTicks *.01;
+            }
             robot.frontrightwheel.setPower(Portion_of_Speed*.97*-speed);
             robot.frontleftwheel.setPower(Portion_of_Speed*-speed);
             robot.backrightwheel.setPower(Portion_of_Speed*.959*-speed);
