@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 public interface AutonomusInterface {
 
-    void moveforward(double time , double speed);
+    void moveforward( double speed, double targetDistance);
 
-    void movebackward(double time, double speed);
+    void movebackward( double speed, double targetDistance);
 
     void moveleft(double time, double speed);
 
@@ -27,4 +27,6 @@ public interface AutonomusInterface {
     void liftup(double time, double speed);
 
     void liftdown(double time, double speed);
+
+
 }

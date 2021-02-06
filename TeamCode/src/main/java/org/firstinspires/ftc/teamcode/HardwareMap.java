@@ -29,12 +29,18 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import android.graphics.drawable.GradientDrawable;
+
 import com.qualcomm.hardware.motors.NeveRest20Gearmotor;
 import com.qualcomm.hardware.motors.RevRoboticsCoreHexMotor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.hardware.bosch.BNO055IMU;
+
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 /**
  * This is NOT an opmode.
@@ -61,7 +67,9 @@ public class  HardwareMap
     public DcMotor  backrightwheel    = null;
     public DcMotor  lift              = null;
     public Servo    tray              = null;
-
+    public WebcamName Webcam          = null;
+    public BNO055IMU IMU              = null;
+    public Orientation lastAngles     = new Orientation();
     //public static final double MID_SERVO       =  0.5 ;
 
     /* local OpMode members. */
@@ -84,9 +92,8 @@ public class  HardwareMap
         frontrightwheel  = hwMap.get(DcMotor.class, "frontrightwheel");
         backrightwheel = hwMap.get(DcMotor.class, "backrightwheel");
         frontleftwheel.setDirection(DcMotorSimple.Direction.REVERSE);
-        frontrightwheel.setDirection(DcMotorSimple.Direction.REVERSE);
         backleftwheel.setDirection(DcMotorSimple.Direction.REVERSE);
-        backrightwheel.setDirection(DcMotorSimple.Direction.REVERSE);
+        //backrightwheel.setDirection(DcMotorSimple.Direction.REVERSE);
         lift = hwMap.get(DcMotor.class, "lift");
 
         // Set all motors to zero power
@@ -99,16 +106,31 @@ public class  HardwareMap
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
+
         frontleftwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backleftwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontrightwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backrightwheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //frontrightwheel.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         // Define and initialize ALL installed servos.
         /* rightClaw = hwMap.get(Servo.class, "right_hand");
         rightClaw.setPosition(MID_SERVO); */
         tray = hwMap.get(Servo.class, "tray");
-        tray.setPosition(90);
+        tray.setPosition(.25);
+
+
+        BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
+
+        parameters.mode             = BNO055IMU.SensorMode.IMU;
+        parameters.angleUnit        =BNO055IMU.AngleUnit.DEGREES;
+        parameters.accelUnit        =BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+        parameters.loggingEnabled   =true;
+
+
+        IMU = hwMap.get(BNO055IMU.class, "IMU");
+
+
     }
  }
 

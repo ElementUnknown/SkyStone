@@ -13,7 +13,7 @@ public class TeleopMode extends LinearOpMode {
     double wheelspeeds[] = new double[8];
     double lx = gamepad1.left_stick_x;
     double ly = gamepad1.left_stick_y;
-    double turnpower = 0;
+    double turnpower ;
     boolean Abutton = gamepad2.a;
     boolean Bbutton = gamepad2.b;
     boolean Ybutton = gamepad2.y;
